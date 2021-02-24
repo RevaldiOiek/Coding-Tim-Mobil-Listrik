@@ -3,7 +3,7 @@ int pwmValue = 0;
 
 void setup() {
    pinMode(PB0, INPUT);
-   pinMode(PA0, OUTPUT);
+   pinMode(PA0, PWM);
 
    pwmtimer4.pause();
    pwmtimer4.setPrescaleFactor(1);
@@ -31,4 +31,9 @@ void loop() {
   }
 
   pwmWrite(PA0, pwmValue);
+   
+  nPWM = (4235/65535) * pwmValue;
+  Serial.println(nPWM);
 }
+
+//https://forum.arduino.cc/index.php?topic=706130.0
